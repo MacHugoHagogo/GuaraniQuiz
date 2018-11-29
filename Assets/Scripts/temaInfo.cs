@@ -12,6 +12,8 @@ public class temaInfo : MonoBehaviour {
     public int idTema;
     public string nomeDoTema;
     public Color corTema;
+    // Imagem que permite o jogo.
+    public Sprite ImagemLiberado;
     public int Vidas;
     public Text moedas;
 
@@ -56,6 +58,7 @@ public class temaInfo : MonoBehaviour {
         // Configura as estrelas do botão
         moedas.text = Vidas.ToString();
         estrelas();
+        verificaNotaMinima();
 
         // temaJogo.txtNomeTema.text = "Oi Eu sou um teste";
         print("Iniciou o temaInfo");
@@ -73,7 +76,9 @@ public class temaInfo : MonoBehaviour {
 
             if (notaFinal >= notaMinimaNecessaria ){
 
+                btnTema.image.sprite = ImagemLiberado;
                 btnTema.interactable = true;
+                print("Liberou");
 
             }else{
 
