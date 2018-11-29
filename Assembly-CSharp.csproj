@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\LeDadosSeco.cs" />
     <Compile Include="Assets\Scripts\moveOffSet.cs" />
     <Compile Include="Assets\Scripts\notaFinal.cs" />
+    <Compile Include="Assets\Scripts\Purchaser.cs" />
     <Compile Include="Assets\Scripts\Question.cs" />
     <Compile Include="Assets\Scripts\responder.cs" />
     <Compile Include="Assets\Scripts\soundController.cs" />
