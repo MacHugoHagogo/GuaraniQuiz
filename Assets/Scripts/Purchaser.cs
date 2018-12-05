@@ -40,6 +40,7 @@ using UnityEngine.Purchasing;
         void Start()
         {
         vidas = PlayerPrefs.GetInt("vidas");
+        macas.text = vidas.ToString();
         // If we haven't set up the Unity Purchasing reference
         if (m_StoreController == null)
             {

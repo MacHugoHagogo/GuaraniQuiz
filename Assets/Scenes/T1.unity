@@ -534,8 +534,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 665190048}
-  - component: {fileID: 665190049}
-  - component: {fileID: 665190050}
   - component: {fileID: 665190051}
   m_Layer: 0
   m_Name: GO
@@ -557,47 +555,6 @@ Transform:
   m_Father: {fileID: 519420032}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &665190049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 665190047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bb96006d066d4af49551e351b92b905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UserNameInput: {fileID: 0}
-  PasswordInput: {fileID: 0}
-  SignupButton: {fileID: 0}
-  LoginButton: {fileID: 0}
-  ErrorText: {fileID: 0}
---- !u!114 &665190050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 665190047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f13db35fa2474306bbd56592964eaf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnPlay: {fileID: 830382749}
-  txtNomeTema: {fileID: 0}
-  infoTema: {fileID: 0}
-  txtInfoTema: {fileID: 0}
-  estrela1: {fileID: 0}
-  estrela2: {fileID: 0}
-  estrela3: {fileID: 0}
-  nomeTema:
-  - 
-  numeroQuestoes: 1
-  idTema: 1
-  Vidas: 0
-  requerNotaMinima: 0
-  notaMinimaNecessaria: 0
 --- !u!114 &665190051
 MonoBehaviour:
   m_ObjectHideFlags: 0

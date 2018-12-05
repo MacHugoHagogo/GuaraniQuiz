@@ -21,8 +21,9 @@ public class EmailPassword : MonoBehaviour
         UserNameInput.text = "demofirebase@gmail.com";
         PasswordInput.text = "abcdefgh";
 
-       SignupButton.onClick.AddListener(() => Signup(UserNameInput.text, PasswordInput.text));
+        SignupButton.onClick.AddListener(() => Signup(UserNameInput.text, PasswordInput.text));
         LoginButton.onClick.AddListener(() => Login(UserNameInput.text, PasswordInput.text));
+        ErrorText.text = "Chamou a tela inivial";
 
     }
 
@@ -53,7 +54,7 @@ public class EmailPassword : MonoBehaviour
 
             FirebaseUser newUser = task.Result; // Firebase user has been created.
             Debug.LogFormat("Firebase user created successfully: {0} ({1})",
-                newUser.DisplayName, newUser.UserId);
+            newUser.DisplayName, newUser.UserId);
             UpdateErrorMessage("Signup Success");
         });
     }
@@ -86,10 +87,10 @@ public class EmailPassword : MonoBehaviour
             }
 
             FirebaseUser user = task.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1})",
-                user.DisplayName, user.UserId);
-
+            print("User carregado =" + user.ToString());
+            Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
             PlayerPrefs.SetString("LoginUser", user != null ? user.Email : "Unknown");
+            ErrorText.text = "Logou e ta subindo";
             SceneManager.LoadScene("titulo");
         }
                                                                           

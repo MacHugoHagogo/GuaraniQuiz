@@ -36,7 +36,7 @@ public class temaJogo : MonoBehaviour {
     private Button btnTema;
 
 
-    private soundController soundController;
+ //   private soundController soundController;
 
 
     // Use this for initialization
@@ -47,13 +47,13 @@ public class temaJogo : MonoBehaviour {
         btnTema = GetComponent<Button>();
 
        // btnPlay.interactable = false;
-        infoTema.SetActive(false);
+      // infoTema.SetActive(false);
         estrela1.SetActive(false);
         estrela2.SetActive(false);
         estrela3.SetActive(false);
-        txtInfoTema.text = "";
+       // txtInfoTema.text = "";
        
-        soundController = FindObjectOfType(typeof(soundController)) as soundController;
+      //  soundController = FindObjectOfType(typeof(soundController)) as soundController;
 
     }
 
@@ -121,7 +121,7 @@ public class temaJogo : MonoBehaviour {
                 if (verificaMinima == false)
                 {
 
-                    txtNomeTema.text = "Você Tem de obter pelo menos 2 estrelas na fase anterior para poder jogar";
+                 //   txtNomeTema.text = "Você Tem de obter pelo menos 2 estrelas na fase anterior para poder jogar";
                 }
                 else{
                     AgoraRoda();
@@ -142,14 +142,14 @@ public class temaJogo : MonoBehaviour {
         // PODE SELECONAR
         int notaFinal = PlayerPrefs.GetInt("notaFinal" + idTema.ToString());
         int acertos = PlayerPrefs.GetInt("acertos" + idTema.ToString());
-        infoTema.SetActive(false);
+    //    infoTema.SetActive(false);
         estrela1.SetActive(false);
         estrela2.SetActive(false);
         estrela3.SetActive(false);
 
         int idNomeTema = idTema - 1;
-        txtNomeTema.text = nomeTema[idNomeTema];
-        txtInfoTema.text = "Você acertou  " + acertos.ToString() + " de " + numeroQuestoes.ToString() + " questões";
+     //   txtNomeTema.text = nomeTema[idNomeTema];
+      //  txtInfoTema.text = "Você acertou  " + acertos.ToString() + " de " + numeroQuestoes.ToString() + " questões";
         print("Funcionou as selação");
         if (notaFinal == 10)
         {
@@ -173,7 +173,7 @@ public class temaJogo : MonoBehaviour {
 
         PlayerPrefs.SetInt("idTema", idTema);
 
-        infoTema.SetActive(true);
+    //    infoTema.SetActive(true);
         btnPlay.interactable = true;
         print("Botão Play Liberado  =" + idTema.ToString());
 
