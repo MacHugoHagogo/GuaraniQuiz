@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3FB69CD4-D2BA-6129-0C1F-414DBEF2EDCD}</ProjectGuid>
+    <ProjectGuid>{9112DFA1-22D2-785A-9120-3C52FC113EA6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>EditorPlugins:7</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2018.2.17f1</UnityVersion>
   </PropertyGroup>
@@ -60,62 +60,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GoogleMobileAds\Api\AdFailedToLoadEventArgs.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\AdLoader.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\AdPosition.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\AdRequest.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\AdSize.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\BannerView.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\CustomNativeEventArgs.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\CustomNativeTemplateAd.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\Gender.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\InterstitialAd.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\MediationExtras.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\MobileAds.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\Reward.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\RewardBasedVideoAd.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\DummyClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IAdLoaderClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IBannerClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\ICustomNativeTemplateClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IInterstitialClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IMobileAdsClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IRewardBasedVideoAdClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\MobileAdsEventExecutor.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\Utils.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\AdLoaderClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\BannerClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\CustomNativeTemplateClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\InterstitialClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\MobileAdsClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\RewardBasedVideoAdClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Utils.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\GoogleMobileAdsClientFactory.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\AdLoaderClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\BannerClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\CustomNativeTemplateClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Externs.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\InterstitialClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MobileAdsClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MonoPInvokeCallbackAttribute.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\RewardBasedVideoAdClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Utils.cs" />
-    <Compile Include="Assets\Scripts\AcessarFirebaseDados.cs" />
-    <Compile Include="Assets\Scripts\EmailPassword.cs" />
-    <Compile Include="Assets\Scripts\LeDadosSeco.cs" />
-    <Compile Include="Assets\Scripts\moveOffSet.cs" />
-    <Compile Include="Assets\Scripts\notaFinal.cs" />
-    <Compile Include="Assets\Scripts\Question.cs" />
-    <Compile Include="Assets\Scripts\responder.cs" />
-    <Compile Include="Assets\Scripts\soundController.cs" />
-    <Compile Include="Assets\Scripts\temaInfo.cs" />
-    <Compile Include="Assets\Scripts\temaJogo.cs" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
-    <None Include="Assets\Firebase\Plugins\link.xml" />
-    <None Include="Assets\Firebase\Plugins\Http\link.xml" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
+    <Compile Include="Assets\Plugins\GitHub\Editor\ExtensionLoader.cs" />
+    <Compile Include="Assets\Plugins\UnityChannel\XiaomiSupport\Editor\AppStoreModel.cs" />
+    <Compile Include="Assets\Plugins\UnityChannel\XiaomiSupport\Editor\AppStoreOnboardApi.cs" />
+    <Compile Include="Assets\Plugins\UnityChannel\XiaomiSupport\Editor\AppStoreSettingsEditor.cs" />
+    <Compile Include="Assets\Plugins\UnityChannel\XiaomiSupport\Editor\XiaomiPackageNameExtension.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\Editor\IAPButtonEditor.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/2018/QuizGFC/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
@@ -154,6 +104,12 @@
     </Reference>
     <Reference Include="UnityEngine.CloudWebServicesModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CloudWebServicesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
@@ -308,20 +264,65 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Timeline">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.GoogleAudioSpatializer">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.HoloLens">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Editor">
+      <HintPath>C:/2018/QuizGFC/Assets/Firebase/Editor/Firebase.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Analytics">
       <HintPath>C:/2018/QuizGFC/Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
@@ -350,11 +351,38 @@
     <Reference Include="Unity.Tasks">
       <HintPath>C:/2018/QuizGFC/Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
     </Reference>
+    <Reference Include="Google.IOSResolver_v1.2.92.0">
+      <HintPath>C:/2018/QuizGFC/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.92.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver_v1.2.92.0">
+      <HintPath>C:/2018/QuizGFC/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.92.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandler">
+      <HintPath>C:/2018/QuizGFC/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl_v1.2.92.0">
+      <HintPath>C:/2018/QuizGFC/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.92.0.dll</HintPath>
+    </Reference>
+    <Reference Include="GitHub.Api.45">
+      <HintPath>C:/2018/QuizGFC/Assets/Plugins/GitHub/Editor/GitHub.Api.45.dll</HintPath>
+    </Reference>
+    <Reference Include="GitHub.Logging">
+      <HintPath>C:/2018/QuizGFC/Assets/Plugins/GitHub/Editor/GitHub.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="GitHub.Unity.45">
+      <HintPath>C:/2018/QuizGFC/Assets/Plugins/GitHub/Editor/GitHub.Unity.45.dll</HintPath>
+    </Reference>
+    <Reference Include="sfw.net">
+      <HintPath>C:/2018/QuizGFC/Assets/Plugins/GitHub/Editor/sfw.net.dll</HintPath>
+    </Reference>
     <Reference Include="UDP">
       <HintPath>C:/2018/QuizGFC/Assets/Plugins/UDP/UDP.dll</HintPath>
     </Reference>
     <Reference Include="AppStoreSettings">
       <HintPath>C:/2018/QuizGFC/Assets/Plugins/UDP/UdpSupport/AppStoreSettings.dll</HintPath>
+    </Reference>
+    <Reference Include="UDPEditor">
+      <HintPath>C:/2018/QuizGFC/Assets/Plugins/UDP/UdpSupport/Editor/UDPEditor.dll</HintPath>
     </Reference>
     <Reference Include="ChannelPurchase">
       <HintPath>C:/2018/QuizGFC/Assets/Plugins/UnityChannel/ChannelPurchase.dll</HintPath>
@@ -386,11 +414,23 @@
     <Reference Include="winrt">
       <HintPath>C:/2018/QuizGFC/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/Users/Paul Mendes/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Paul Mendes/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>C:/Users/Paul Mendes/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/Users/Paul Mendes/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/Paul Mendes/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

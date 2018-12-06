@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3FB69CD4-D2BA-6129-0C1F-414DBEF2EDCD}</ProjectGuid>
+    <ProjectGuid>{656700F0-E2BD-0906-2BBD-1FA18608739B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2018.2.17f1</UnityVersion>
   </PropertyGroup>
@@ -60,62 +60,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GoogleMobileAds\Api\AdFailedToLoadEventArgs.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\AdLoader.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\AdPosition.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\AdRequest.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\AdSize.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\BannerView.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\CustomNativeEventArgs.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\CustomNativeTemplateAd.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\Gender.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\InterstitialAd.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\MediationExtras.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\MobileAds.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\Reward.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\RewardBasedVideoAd.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\DummyClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IAdLoaderClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IBannerClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\ICustomNativeTemplateClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IInterstitialClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IMobileAdsClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\IRewardBasedVideoAdClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\MobileAdsEventExecutor.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Common\Utils.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\AdLoaderClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\BannerClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\CustomNativeTemplateClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\InterstitialClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\MobileAdsClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\RewardBasedVideoAdClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Utils.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\GoogleMobileAdsClientFactory.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\AdLoaderClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\BannerClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\CustomNativeTemplateClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Externs.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\InterstitialClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MobileAdsClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MonoPInvokeCallbackAttribute.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\RewardBasedVideoAdClient.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Utils.cs" />
-    <Compile Include="Assets\Scripts\AcessarFirebaseDados.cs" />
-    <Compile Include="Assets\Scripts\EmailPassword.cs" />
-    <Compile Include="Assets\Scripts\LeDadosSeco.cs" />
-    <Compile Include="Assets\Scripts\moveOffSet.cs" />
-    <Compile Include="Assets\Scripts\notaFinal.cs" />
-    <Compile Include="Assets\Scripts\Question.cs" />
-    <Compile Include="Assets\Scripts\responder.cs" />
-    <Compile Include="Assets\Scripts\soundController.cs" />
-    <Compile Include="Assets\Scripts\temaInfo.cs" />
-    <Compile Include="Assets\Scripts\temaJogo.cs" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
-    <None Include="Assets\Firebase\Plugins\link.xml" />
-    <None Include="Assets\Firebase\Plugins\Http\link.xml" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
+    <Compile Include="Assets\Plugins\UDP\UdpSupport\SampleScene\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Plugins\UnityChannel\XiaomiSupport\AppStoreSettings.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\script\CodelessIAPStoreListener.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\script\ComboBox.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\script\Demo\DemoInventory.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\script\IAPButton.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\script\IAPConfigurationHelper.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\script\IAPDemo.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\script\IAPDemoProductUI.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\script\IAPListener.cs" />
+    <Compile Include="Assets\Plugins\UnityPurchasing\script\PurchasingCheck.cs" />
+    <None Include="Assets\Plugins\Android\Firebase\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\Firebase\res\values\google-services.xml" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/2018/QuizGFC/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
@@ -746,12 +703,6 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{656700F0-E2BD-0906-2BBD-1FA18608739B}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
