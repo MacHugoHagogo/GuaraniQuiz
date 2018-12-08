@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/hugomelo/Desenvolvimento/Guarani/Quiz Guarani/Temp/gradleOut/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v11/values-v11.xml",
+            "map": [
+                {
+                    "source": "/Users/hugomelo/.gradle/caches/transforms-1/files-1.1/GooglePlay.aar/6bd3c1feb5f608c8bbde8d51bef8a0f9/res/values-v11/values-v11.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "10",
+                        "endColumns": "12",
+                        "endOffsets": "584"
+                    }
+                }
+            ]
+        }
+    ]
+}

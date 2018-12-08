@@ -64,7 +64,7 @@ public class notaFinal : MonoBehaviour {
 
     public void jogarNovamente(){
 
-        SceneManager.LoadScene("T" + idTema.ToString());
+        SceneManager.LoadScene("t1");
 
 
     }
