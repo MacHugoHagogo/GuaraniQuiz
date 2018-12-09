@@ -1,4 +1,0 @@
-#Sat Dec 08 00:33:57 BRST 2018
-base.0=/Users/hugomelo/Desenvolvimento/Guarani/Quiz Guarani/Temp/gradleOut/build/intermediates/transforms/dex/release/0
-path.0=classes.dex
-renamed.0=classes.dex

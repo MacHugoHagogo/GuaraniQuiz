@@ -54,6 +54,7 @@ public class LeDadosSeco : MonoBehaviour {
 
     void  StartListener(){
 
+        print("Vai começar a ler os dados");
 
         FirebaseDatabase.DefaultInstance
       .GetReference("Questions/Nivel1")
@@ -68,7 +69,7 @@ public class LeDadosSeco : MonoBehaviour {
                 DataSnapshot snapshot = task.Result;
                 print("quantidade de filhos" + snapshot.ChildrenCount.ToString());
 
-              for (int i = 0; i < 2 ; i++)
+              for (int i = 0; i < QtdPerguntas; i++)
                 { 
                     // Le os dados do Banco no atalho /Tela+Indice+/Pergunta - Desse jeito ele busca os itens da árvore
                     // no caminho certo e coloca no indice do arrey.
@@ -78,13 +79,46 @@ public class LeDadosSeco : MonoBehaviour {
                   Question.R3[i] = snapshot.Child("/Tela" + (i + 1).ToString() + "/R3").Value.ToString();
                   Question.R4[i] = snapshot.Child("/Tela" + (i + 1).ToString() + "/R4").Value.ToString();
                   Question.Resposta[i] = snapshot.Child("/Tela" + (i + 1).ToString() + "/Resposta").Value.ToString();
-
+                  
 
               }
 
+              print("Dado 1=" + Question.Pergunta[0].ToString()  );
               // Do something with snapshot...
           }
         });
+
+        print("Vai começar a ler os dados de Usuário");
+
+        FirebaseDatabase.DefaultInstance
+      .GetReference("Usuarios")
+      .GetValueAsync().ContinueWith(task => {
+          if (task.IsFaulted)
+          {
+              print("Deu erro");
+              // Handle the error...
+          }
+          else if (task.IsCompleted)
+          {
+              DataSnapshot snapshot = task.Result;
+              print("quantidade de filhos" + snapshot.ChildrenCount.ToString());
+
+              for (int i = 0; i < QtdPerguntas; i++)
+              {
+                  // Le os dados do Banco no atalho /Tela+Indice+/Pergunta - Desse jeito ele busca os itens da árvore
+                  // no caminho certo e coloca no indice do arrey.
+                  Usuario.Nome = snapshot.Child("/o3Qdp7J9M3hSOgNzsHRspMU1U2n1" + "/Nome").Value.ToString();
+                  Usuario.eMail = snapshot.Child("/o3Qdp7J9M3hSOgNzsHRspMU1U2n1" + "/eMail").Value.ToString();
+
+              }
+
+              print("Dado Nome =" + Usuario.Nome.ToString());
+              print("Dado eMail =" + Usuario.eMail.ToString());
+              // Do something with snapshot...
+          }
+      });
+
+
 
     }
 }
