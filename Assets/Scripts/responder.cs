@@ -222,7 +222,7 @@ public class responder : MonoBehaviour
             respostas[idBtnCorreto].image.color = corAcerto;
 
 
-            // StartCoroutine("MopstrarAlterantivaCorreta");
+             StartCoroutine("MopstrarAlterantivaCorreta");
         }
 
 
@@ -270,7 +270,7 @@ public class responder : MonoBehaviour
             respostaB.text = Question.R2[idPergunta];
             respostaC.text = Question.R3[idPergunta];
             respostaD.text = Question.R4[idPergunta];
-           // progressoBarra();
+            progressoBarra();
          //   respondeu();
         }
         else {
