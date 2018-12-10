@@ -253,7 +253,7 @@
   </explodeData>
   <explodeData>
     <aar>com.google.firebase.firebase-analytics-unity-5.4.0</aar>
-    <modificationTime>2018-12-09T14:16:41-02:00</modificationTime>
+    <modificationTime>2018-12-10T21:10:38-02:00</modificationTime>
     <explode>true</explode>
     <bundleId>br.com.redscarf.quizguarani</bundleId>
     <path>Assets/Plugins/Android/com.google.firebase.firebase-analytics-unity-5.4.0.aar</path>
@@ -265,7 +265,7 @@
   </explodeData>
   <explodeData>
     <aar>com.google.firebase.firebase-app-unity-5.4.0</aar>
-    <modificationTime>2018-12-09T14:16:41-02:00</modificationTime>
+    <modificationTime>2018-12-10T21:10:38-02:00</modificationTime>
     <explode>true</explode>
     <bundleId>br.com.redscarf.quizguarani</bundleId>
     <path>Assets/Plugins/Android/com.google.firebase.firebase-app-unity-5.4.0.aar</path>
@@ -301,7 +301,7 @@
   </explodeData>
   <explodeData>
     <aar>com.google.firebase.firebase-auth-unity-5.4.0</aar>
-    <modificationTime>2018-12-09T14:16:41-02:00</modificationTime>
+    <modificationTime>2018-12-10T21:10:38-02:00</modificationTime>
     <explode>true</explode>
     <bundleId>br.com.redscarf.quizguarani</bundleId>
     <path>Assets/Plugins/Android/com.google.firebase.firebase-auth-unity-5.4.0.aar</path>
@@ -313,7 +313,7 @@
   </explodeData>
   <explodeData>
     <aar>com.google.firebase.firebase-common-16.0.3</aar>
-    <modificationTime>2018-12-09T14:16:41-02:00</modificationTime>
+    <modificationTime>2018-12-10T21:10:38-02:00</modificationTime>
     <explode>false</explode>
     <bundleId>br.com.redscarf.quizguarani</bundleId>
     <path>Assets/Plugins/Android/com.google.firebase.firebase-common-16.0.3.aar</path>
@@ -361,7 +361,7 @@
   </explodeData>
   <explodeData>
     <aar>com.google.firebase.firebase-database-unity-5.4.0</aar>
-    <modificationTime>2018-12-09T14:16:41-02:00</modificationTime>
+    <modificationTime>2018-12-10T21:10:38-02:00</modificationTime>
     <explode>true</explode>
     <bundleId>br.com.redscarf.quizguarani</bundleId>
     <path>Assets/Plugins/Android/com.google.firebase.firebase-database-unity-5.4.0.aar</path>

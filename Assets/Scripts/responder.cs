@@ -10,7 +10,7 @@ using Firebase.Database;
 public class responder : MonoBehaviour
 {
 
-  //  private LeDadosSeco LeDadosSeco;
+    //  private LeDadosSeco LeDadosSeco;
 
     private int idTema;
 
@@ -27,33 +27,31 @@ public class responder : MonoBehaviour
     public Text respostaB;
     public Text respostaC;
     public Text respostaD;
-    public Text infoRespostas;
+    public Text infoRespostasTxt;
     private int Vidas;
 
     [Header("Botões de resposta")]
-
-    public Button[]     respostas;
-    public Button       btnProxima;
-    public Color        corAcerto, corErro;
-   
+    public Button[] respostas;
+    public Button btnProxima;
+    public Color corAcerto, corErro;
 
 
-   // public GameObject CertoA;
+
+    // public GameObject CertoA;
     //public GameObject ErradoA;
 
     [Header("Barra")]
-
-    public GameObject   barraProgresso;
-    public int          qtdrespondida = 0;
+    public GameObject barraProgresso;
+    public GameObject barraTempo;
+    public int qtdRespondida = 0;
 
     [Header("Opções de Jogo")]
-
-    public bool     perguntasAleatorias;
-    public bool     jogarComTempo;
-    public float    tempoResponder;
-    public bool     mostrarCorreta;
-    public int      qtdPiscar;
-    public bool     podeClicar = true;
+    public bool perguntasAleatorias;
+    public bool jogarComTempo;
+    public float tempoResponder;
+    public bool mostrarCorreta;
+    public int qtdPiscar;
+    public bool podeClicar = true;
 
     /*
     [Header("Configuração das Perguntas")]
@@ -72,22 +70,31 @@ public class responder : MonoBehaviour
     public float acertos;
     public float qtdQuestoes;
     public float media;
+    public float percRespondido;
+    public float valorY = 0.5f;
+    public float percTempo;
+    public float tempTime;
     public int notaFinal;
     public int idBtnCorreto;
 
     private soundController soundController;
-   // private LeDadosSeco LeDadosSeco;
-  //  private Question question;
+    // private LeDadosSeco LeDadosSeco;
+    //  private Question question;
 
     // Use this for initialization
     void Start()
     {
         soundController = FindObjectOfType(typeof(soundController)) as soundController;
 
+        barraTempo.SetActive(false);
+
+        controlabarraTempo();
 
         idTema = PlayerPrefs.GetInt("idTema");
         idPergunta = 0;
         qtdQuestoes = Question.Pergunta.Length;
+
+
         //print(qtdQuestoes);
 
         //Os campos Perguntas e as respostas são carregados pela primeira vez com base no Array estático da Classe Question.
@@ -97,43 +104,73 @@ public class responder : MonoBehaviour
         respostaC.text = Question.R3[0];
         respostaD.text = Question.R4[0];
 
-        print("Ao Carregar =" + Question.Pergunta[0].ToString());
-
-        progressoBarra();
-        respondeu();
-//        btnProxima.interactable = true;
-
-        //  btnVoltar.interactable = false;
+        /*
+        print("Classe Responder - Método Start: QtdQuestões =" + qtdQuestoes);
+        int i;
+        try { 
+            for (i = 0; i < qtdQuestoes; i++) {
+                print("Classe Responder - Método Start: Questão[" + i + "] " + Question.Pergunta[i].ToString());
+            }
+        }
+        catch { print("Classe Responder - Método Start: Estourou Indice do Vetor de Perguntas"); }
+        */
 
     }
 
+    void Update()
+    {
+        if (jogarComTempo == true)
+        {
+            tempTime += Time.deltaTime;
+            controlabarraTempo();
 
+            if (tempTime >= tempoResponder)
+            {
+                print("Método Update - Muda pergunta por limite de tempo ");
+                proximaPergunta();
+            }
+        }
+
+    }
+
+    void controlabarraTempo()
+    {
+        // print("Método controlaBarraTempo - tempTime + tempoResponder " + tempoResponder);
+        if (jogarComTempo == true) { barraTempo.SetActive(true); }
+        percTempo = ((tempTime - tempoResponder) / tempoResponder) * -1;
+        if (percTempo < 0) { percTempo = 0; }
+        barraTempo.transform.localScale = new Vector3(percTempo, 1, 1);
+
+    }
 
     public void resposta(string alternativa)
     {
 
         // verifica se pode aceitar a resposta
-        if(podeClicar==false)
+        if (podeClicar == false)
         {
             return;
         }
-       
+
         // Coloca impossibilitado de responder até clicr a próxima
         podeClicar = false;
 
-        // verifica se escolheo a alternativa certa.
+        qtdRespondida++;
+
+        // verifica se escolheu a alternativa certa.
+        print("Classe Responder - Método resposta: Alternativa = " + alternativa); // + " Pergunta " + Question.R1[idPergunta].ToString() + " Resposta " + Question.Resposta[idPergunta].ToString());
         if (alternativa == "A")
         {
             if (Question.R1[idPergunta] == Question.Resposta[idPergunta])
             {
                 acertos += 1;
                 idBtnCorreto = 0;
-          //     soundController.playAcerto();
-             //   print("Parou no A");
+                //   soundController.playAcerto();
+                //   print("Parou no A");
             }
             else
             {
-            //    soundController.playErro();
+                //    soundController.playErro();
                 print("PDeu RUIM !!");
             }
 
@@ -144,13 +181,13 @@ public class responder : MonoBehaviour
             {
                 acertos += 1;
                 idBtnCorreto = 1;
-               // soundController.playAcerto();
+                // soundController.playAcerto();
                 // print("Parou no B");
 
             }
             else
             {
-              //  soundController.playErro();
+                //  soundController.playErro();
                 print("PDeu RUIM !!");
             }
         }
@@ -160,13 +197,13 @@ public class responder : MonoBehaviour
             {
                 acertos += 1;
                 idBtnCorreto = 2;
-              //  soundController.playAcerto();
+                //  soundController.playAcerto();
                 //   print("Parou no C");
 
             }
             else
             {
-            //   soundController.playErro();
+                //   soundController.playErro();
                 print("PDeu RUIM !!");
             }
         }
@@ -176,73 +213,40 @@ public class responder : MonoBehaviour
             {
                 acertos += 1;
                 idBtnCorreto = 3;
-              //  soundController.playAcerto();
+                //  soundController.playAcerto();
                 //    print("Parou no D");
 
-            } else {
-               // soundController.playErro();
+            }
+            else
+            {
+                // soundController.playErro();
                 print("PDeu RUIM !!");
             }
         }
-        qtdrespondida += 1;
 
-
-        // marcar a resposta certa
-
-        if (Question.R1[idPergunta] == Question.Resposta[idPergunta]){
-            idBtnCorreto = 0;
-            print("Parou no A !!");
-        }
-        else if (Question.R2[idPergunta] == Question.Resposta[idPergunta])
-        {
-            idBtnCorreto = 1;
-            print("Parou no B !!");
-        }
-        else if(Question.R3[idPergunta] == Question.Resposta[idPergunta])
-        {
-            idBtnCorreto = 2;
-            print("Parou no C !!");
-        }
-        else if(Question.R4[idPergunta] == Question.Resposta[idPergunta])
-        {
-            idBtnCorreto = 3;
-            print("Parou no D !!");
-        } 
-
-
-        //Verifica se é para pintar as respostas Certas e erradas
-        if (mostrarCorreta== true){
-
-            // Coloca todos os botões com acor de erro.
-            foreach(Button i in respostas){
-
-                i.image.color = corErro;
-            }
-            //  respostas[idBtnCorreto].image.color = corAcerto;
-            respostas[idBtnCorreto].image.color = corAcerto;
-
-
-             StartCoroutine("MopstrarAlterantivaCorreta");
-        }
-
-
-        proximaPergunta();
+        progressoBarra();
 
     }
 
-    public void proximaPergunta(){
+    public void proximaPergunta()
+    {
 
+        print("Classe Responder - Método proximaPergunta = ");
         idPergunta++;
+        tempTime = 0;
         podeClicar = true;
 
-           for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++)
+        {
 
             respostas[i].image.color = Color.white;
-        }
-        print("IdPergunta para calcular =" + idPergunta.ToString());
 
-        if (idPergunta < Question.Pergunta.Length) {
-      //  if (idPergunta >= qtdQuestoes){
+        }
+
+        print("Método proximaPergunta: Compara valores para Calcular Média = " + idPergunta + " qtdQuestoes " + qtdQuestoes);
+
+        if (idPergunta == qtdQuestoes) // Question.Pergunta.Length
+        {
 
             // calcula a media
             media = 10 * (acertos / qtdQuestoes);
@@ -252,87 +256,111 @@ public class responder : MonoBehaviour
 
             //verifica se a nota é maior que a anterior
 
-            if (notaFinal > PlayerPrefs.GetInt("notaFinal" + idTema.ToString())){
-
-                PlayerPrefs.SetInt("notaFinal" + idTema.ToString(), notaFinal);
-                PlayerPrefs.SetInt("acertos" + idTema.ToString(), (int) acertos);
-
-      //      }
-                print("Nota Final =" + notaFinal.ToString());
-      //      PlayerPrefs.SetInt("notaFinalTemp" + idTema.ToString(), notaFinal);
-      //      PlayerPrefs.SetInt("acertosTemp" + idTema.ToString(), (int)acertos);
-      //      SceneManager.LoadScene("notaFinal");
-
-        }
-
-            pergunta.text = Question.Pergunta[idPergunta];
-            respostaA.text = Question.R1[idPergunta];
-            respostaB.text = Question.R2[idPergunta];
-            respostaC.text = Question.R3[idPergunta];
-            respostaD.text = Question.R4[idPergunta];
-            progressoBarra();
-         //   respondeu();
-        }
-        else {
-
-           // progressoBarra();
-
-        //    btnProxima.interactable = false;
-        //    btnAcabou.interactable = true;
-        //    podeClicar = false;
-           // respondeu();
-            print("Acabou as Questões");
-            //verifica se a nota é maior que a anterior
             if (notaFinal > PlayerPrefs.GetInt("notaFinal" + idTema.ToString()))
             {
 
                 PlayerPrefs.SetInt("notaFinal" + idTema.ToString(), notaFinal);
                 PlayerPrefs.SetInt("acertos" + idTema.ToString(), (int)acertos);
 
+                print("Nota Final =" + notaFinal.ToString());
+                //      PlayerPrefs.SetInt("notaFinalTemp" + idTema.ToString(), notaFinal);
+                //      PlayerPrefs.SetInt("acertosTemp" + idTema.ToString(), (int)acertos);
+                //      SceneManager.LoadScene("notaFinal");
+
             }
-            PlayerPrefs.SetInt("notaFinalTemp" + idTema.ToString(), notaFinal);
-            PlayerPrefs.SetInt("acertosTemp" + idTema.ToString(), (int)acertos);
-            Vidas = PlayerPrefs.GetInt("vidas");
-            PlayerPrefs.SetInt("vidas", Vidas = Vidas - 1);
-            SceneManager.LoadScene("notaFinal");
+            voltaParaTema();
+        }
+        else
+        {
+
+            print("Classe Responder - Método proximaPergunta - Proxima Pergunta = " + idPergunta + " qtdQuestoes " + qtdQuestoes);
+            // carrega a proxima pergunta
+            if (idPergunta < qtdQuestoes)
+            {
+                pergunta.text = Question.Pergunta[idPergunta];
+                respostaA.text = Question.R1[idPergunta];
+                respostaB.text = Question.R2[idPergunta];
+                respostaC.text = Question.R3[idPergunta];
+                respostaD.text = Question.R4[idPergunta];
+            }
+            //progressoBarra();
         }
 
     }
 
-    public void progressoBarra(){
+    public void progressoBarra()
+    {
 
-        float percRespondido =((qtdrespondida/ qtdQuestoes));
-      //  float valorY = 0.5f;
 
-//        barraProgresso.transform.localScale = new Vector3(percRespondido, 0.5f, 1);
+        percRespondido = ((qtdRespondida / qtdQuestoes));
+        print("Classe Responder - Método progressoBarra: Qtd Questões Respondidas =" + qtdRespondida + " Questoes " + qtdQuestoes + " % Respostas " + percRespondido);
 
-        print("Percentual de progresso :" + percRespondido.ToString());
+
+        respondeu();
+        if (qtdRespondida >= 1)
+        {
+
+            barraProgresso.transform.localScale = new Vector3(percRespondido, 0.5f, 1);
+
+            //Verifica se é para pintar as respostas Certas e erradas
+            if (mostrarCorreta == true)
+            {
+                print("Classe Responder - Método resposta: Colorindo botões corAcerto e corErro");
+                // Coloca todos os botões com acor de erro.
+                foreach (Button i in respostas)
+                {
+
+                    i.image.color = corErro;
+                }
+                //  respostas[idBtnCorreto].image.color = corAcerto;
+                respostas[idBtnCorreto].image.color = corAcerto;
+
+            }
+
+            proximaPergunta();
+        }
+        else { barraProgresso.transform.localScale = new Vector3(percRespondido, 0, 0); }
 
     }
 
-    public void voltaParaTema(){
+    public void voltaParaTema()
+    {
 
         PlayerPrefs.SetInt("notaFinalTemp" + idTema.ToString(), notaFinal);
         PlayerPrefs.SetInt("acertosTemp" + idTema.ToString(), (int)acertos);
-
+        print("Classe Responder - Método voltaParaTema: Chama cena notaFinal");
         SceneManager.LoadScene("notaFinal");
     }
 
-    public void respondeu(){
-
-//        infoRespostas.text = "Respondeu " + (idPergunta).ToString() + " de " + qtdQuestoes.ToString();
+    public void respondeu()
+    {
+        print("Classe Responder - Método respondeu: Qtd Questões Respondidas =" + qtdRespondida);
+        if (qtdRespondida <= 1)
+        {
+            infoRespostasTxt.text = "Respondida " + qtdRespondida + " de " + qtdQuestoes.ToString() + " Perguntas";
+            //proximaPergunta();
+        }
+        else
+        {
+            infoRespostasTxt.text = "Respondidas " + qtdRespondida + " de " + qtdQuestoes.ToString() + " Perguntas";
+            //proximaPergunta();
+        }
+        StartCoroutine("MostrarAlternativaCorreta");
 
     }
 
 
-    IEnumerator  MopstrarAlterantivaCorreta(){
+    IEnumerator MostrarAlternativaCorreta()
+    {
 
-        for (int i = 0; i < qtdPiscar; i++){
+        print("Classe Responder - Método MostrarAlternativaCorreta:  = " + qtdPiscar);
+        for (int i = 0; i < qtdPiscar; i++)
+        {
 
             respostas[idBtnCorreto].image.color = corAcerto;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
             respostas[idBtnCorreto].image.color = Color.white;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
 
 
         }
