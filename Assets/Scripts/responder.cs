@@ -3,22 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Firebase;
-using Firebase.Unity.Editor;
-using Firebase.Database;
+
 
 public class responder : MonoBehaviour
 {
 
-  //  private LeDadosSeco LeDadosSeco;
-
     private int idTema;
-
-    [Header("Firebase")]
-
-
-    public int QtdPerguntas;
-
 
     [Header("Respostas")]
 
@@ -55,7 +45,6 @@ public class responder : MonoBehaviour
     public int      qtdPiscar;
     public bool     podeClicar = true;
 
-    /*
     [Header("Configuração das Perguntas")]
 
     public string[] perguntas;      // ARmazena todas as perguntas
@@ -64,7 +53,7 @@ public class responder : MonoBehaviour
     public string[] AlternativaC;   // Armezena todas as alterantivas C
     public string[] AlternativaD;   // Armezena todas as alterantivas D
     public string[] corretas;       // Armezena todas as alterantivas corretas
-    */
+
 
 
     private int idPergunta;
@@ -76,38 +65,26 @@ public class responder : MonoBehaviour
     public int idBtnCorreto;
 
     private soundController soundController;
-   // private LeDadosSeco LeDadosSeco;
-  //  private Question question;
 
     // Use this for initialization
     void Start()
     {
         soundController = FindObjectOfType(typeof(soundController)) as soundController;
-
-
         idTema = PlayerPrefs.GetInt("idTema");
         idPergunta = 0;
-        qtdQuestoes = Question.Pergunta.Length;
-        //print(qtdQuestoes);
-
-        //Os campos Perguntas e as respostas são carregados pela primeira vez com base no Array estático da Classe Question.
-        pergunta.text = Question.Pergunta[0];
-        respostaA.text = Question.R1[0];
-        respostaB.text = Question.R2[0];
-        respostaC.text = Question.R3[0];
-        respostaD.text = Question.R4[0];
-
-        print("Ao Carregar =" + Question.Pergunta[0].ToString());
-
+        qtdQuestoes = perguntas.Length;
+        // print(qtdQuestoes);
+        pergunta.text = perguntas[idPergunta];
+        respostaA.text = AlternativaA[idPergunta];
+        respostaB.text = AlternativaB[idPergunta];
+        respostaC.text = AlternativaC[idPergunta];
+        respostaD.text = AlternativaD[idPergunta];
         progressoBarra();
         respondeu();
-//        btnProxima.interactable = true;
-
+        btnProxima.interactable = true;
         //  btnVoltar.interactable = false;
 
     }
-
-
 
     public void resposta(string alternativa)
     {
@@ -124,63 +101,63 @@ public class responder : MonoBehaviour
         // verifica se escolheo a alternativa certa.
         if (alternativa == "A")
         {
-            if (Question.R1[idPergunta] == Question.Resposta[idPergunta])
+            if (AlternativaA[idPergunta] == corretas[idPergunta])
             {
                 acertos += 1;
                 idBtnCorreto = 0;
-          //     soundController.playAcerto();
+                soundController.playAcerto();
              //   print("Parou no A");
             }
             else
             {
-            //    soundController.playErro();
+                soundController.playErro();
                 print("PDeu RUIM !!");
             }
 
         }
         else if (alternativa == "B")
         {
-            if (Question.R2[idPergunta] == Question.Resposta[idPergunta])
+            if (AlternativaB[idPergunta] == corretas[idPergunta])
             {
                 acertos += 1;
                 idBtnCorreto = 1;
-               // soundController.playAcerto();
+                soundController.playAcerto();
                 // print("Parou no B");
 
             }
             else
             {
-              //  soundController.playErro();
+                soundController.playErro();
                 print("PDeu RUIM !!");
             }
         }
         else if (alternativa == "C")
         {
-            if (Question.R3[idPergunta] == Question.Resposta[idPergunta])
+            if (AlternativaC[idPergunta] == corretas[idPergunta])
             {
                 acertos += 1;
                 idBtnCorreto = 2;
-              //  soundController.playAcerto();
+                soundController.playAcerto();
                 //   print("Parou no C");
 
             }
             else
             {
-            //   soundController.playErro();
+                soundController.playErro();
                 print("PDeu RUIM !!");
             }
         }
         else if (alternativa == "D")
         {
-            if (Question.R4[idPergunta] == Question.Resposta[idPergunta])
+            if (AlternativaD[idPergunta] == corretas[idPergunta])
             {
                 acertos += 1;
                 idBtnCorreto = 3;
-              //  soundController.playAcerto();
+                soundController.playAcerto();
                 //    print("Parou no D");
 
             } else {
-               // soundController.playErro();
+                soundController.playErro();
                 print("PDeu RUIM !!");
             }
         }
@@ -189,21 +166,21 @@ public class responder : MonoBehaviour
 
         // marcar a resposta certa
 
-        if (Question.R1[idPergunta] == Question.Resposta[idPergunta]){
+        if (AlternativaA[idPergunta] == corretas[idPergunta]){
             idBtnCorreto = 0;
             print("Parou no A !!");
         }
-        else if (Question.R2[idPergunta] == Question.Resposta[idPergunta])
+        else if (AlternativaB[idPergunta] == corretas[idPergunta])
         {
             idBtnCorreto = 1;
             print("Parou no B !!");
         }
-        else if(Question.R3[idPergunta] == Question.Resposta[idPergunta])
+        else if(AlternativaC[idPergunta] == corretas[idPergunta])
         {
             idBtnCorreto = 2;
             print("Parou no C !!");
         }
-        else if(Question.R4[idPergunta] == Question.Resposta[idPergunta])
+        else if(AlternativaD[idPergunta] == corretas[idPergunta])
         {
             idBtnCorreto = 3;
             print("Parou no D !!");
@@ -241,7 +218,7 @@ public class responder : MonoBehaviour
         }
         print("IdPergunta para calcular =" + idPergunta.ToString());
 
-        if (idPergunta < Question.Pergunta.Length) {
+        if (idPergunta < perguntas.Length) {
       //  if (idPergunta >= qtdQuestoes){
 
             // calcula a media
@@ -265,22 +242,22 @@ public class responder : MonoBehaviour
 
         }
 
-            pergunta.text = Question.Pergunta[idPergunta];
-            respostaA.text = Question.R1[idPergunta];
-            respostaB.text = Question.R2[idPergunta];
-            respostaC.text = Question.R3[idPergunta];
-            respostaD.text = Question.R4[idPergunta];
-           // progressoBarra();
-         //   respondeu();
+            pergunta.text = perguntas[idPergunta];
+            respostaA.text = AlternativaA[idPergunta];
+            respostaB.text = AlternativaB[idPergunta];
+            respostaC.text = AlternativaC[idPergunta];
+            respostaD.text = AlternativaD[idPergunta];
+            progressoBarra();
+            respondeu();
         }
         else {
 
-           // progressoBarra();
+            progressoBarra();
 
         //    btnProxima.interactable = false;
         //    btnAcabou.interactable = true;
         //    podeClicar = false;
-           // respondeu();
+            respondeu();
             print("Acabou as Questões");
             //verifica se a nota é maior que a anterior
             if (notaFinal > PlayerPrefs.GetInt("notaFinal" + idTema.ToString()))
@@ -304,7 +281,7 @@ public class responder : MonoBehaviour
         float percRespondido =((qtdrespondida/ qtdQuestoes));
       //  float valorY = 0.5f;
 
-//        barraProgresso.transform.localScale = new Vector3(percRespondido, 0.5f, 1);
+        barraProgresso.transform.localScale = new Vector3(percRespondido, 0.5f, 1);
 
         print("Percentual de progresso :" + percRespondido.ToString());
 
@@ -320,7 +297,7 @@ public class responder : MonoBehaviour
 
     public void respondeu(){
 
-//        infoRespostas.text = "Respondeu " + (idPergunta).ToString() + " de " + qtdQuestoes.ToString();
+        infoRespostas.text = "Respondeu " + (idPergunta).ToString() + " de " + qtdQuestoes.ToString();
 
     }
 

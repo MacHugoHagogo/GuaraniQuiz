@@ -9,8 +9,6 @@ public class temaJogo : MonoBehaviour {
 
     //Declaração de variáveis
 
-
-
     public Button       btnPlay;
     public Text         txtNomeTema;
     public GameObject   infoTema;
@@ -38,15 +36,13 @@ public class temaJogo : MonoBehaviour {
 
     private soundController soundController;
 
-
     // Use this for initialization
     void Start () {
-
 
         // recebe o botão
         btnTema = GetComponent<Button>();
 
-       // btnPlay.interactable = false;
+        btnPlay.interactable = false;
         infoTema.SetActive(false);
         estrela1.SetActive(false);
         estrela2.SetActive(false);
@@ -96,10 +92,8 @@ public class temaJogo : MonoBehaviour {
 
 
         Vidas = PlayerPrefs.GetInt("vidas");
-        print("Vidas =" + Vidas.ToString());
-//       print("Selecionou o tema =" + nomeTema[(idTema - 1)].ToString());
-
-      /*  if (Vidas <= 0)
+        print("Selecionou o tema =" + nomeTema[(idTema - 1)].ToString());
+        if (Vidas <= 0)
         {
 
             txtNomeTema.text = "Você não tem moedas o suficiente para jogar";
@@ -108,7 +102,7 @@ public class temaJogo : MonoBehaviour {
         }
         else
         {
-*/
+
             // verificaNotaMinima nota minima para jogar.
             print("nota minima ta marcado? " + requerNotaMinima.ToString());
 
@@ -133,7 +127,7 @@ public class temaJogo : MonoBehaviour {
             {
                 AgoraRoda();
             }
-
+        }
 
     }
 
@@ -194,7 +188,7 @@ public class temaJogo : MonoBehaviour {
     public void VaiParaLoja()
     {
 
-            SceneManager.LoadScene("loja");
+            SceneManager.LoadScene("bau");
 
 
     }

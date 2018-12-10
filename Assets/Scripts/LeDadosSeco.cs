@@ -33,8 +33,6 @@ public class LeDadosSeco : MonoBehaviour {
         Question.R4 = new string[QtdPerguntas];
         Question.Resposta = new string[QtdPerguntas];
 
-
-
         InitializeFirebase();
 
     }
@@ -68,7 +66,7 @@ public class LeDadosSeco : MonoBehaviour {
                 DataSnapshot snapshot = task.Result;
                 print("quantidade de filhos" + snapshot.ChildrenCount.ToString());
 
-              for (int i = 0; i < 2 ; i++)
+              for (int i = 0; i < QtdPerguntas; i++)
                 { 
                     // Le os dados do Banco no atalho /Tela+Indice+/Pergunta - Desse jeito ele busca os itens da árvore
                     // no caminho certo e coloca no indice do arrey.

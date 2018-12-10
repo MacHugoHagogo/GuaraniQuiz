@@ -8,6 +8,7 @@ public class temaInfo : MonoBehaviour {
 
     private temaJogo temaJogo;
 
+
     [Header ("Configuração do Tema")]
     public int idTema;
     public string nomeDoTema;
@@ -40,7 +41,6 @@ public class temaInfo : MonoBehaviour {
 
         // busca o script temaJogo.
          temaJogo = FindObjectOfType(typeof(temaJogo)) as temaJogo;
-
 
         // Configura o numero do botão 
         idTemaTxt.text = idTema.ToString();
