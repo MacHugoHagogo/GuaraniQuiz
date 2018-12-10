@@ -109,6 +109,7 @@ public class LeDadosSeco : MonoBehaviour {
                   // no caminho certo e coloca no indice do arrey.
                   Usuario.Nome = snapshot.Child("/o3Qdp7J9M3hSOgNzsHRspMU1U2n1" + "/Nome").Value.ToString();
                   Usuario.eMail = snapshot.Child("/o3Qdp7J9M3hSOgNzsHRspMU1U2n1" + "/eMail").Value.ToString();
+                  Usuario.DataNascimento = snapshot.Child("/o3Qdp7J9M3hSOgNzsHRspMU1U2n1" + "/DataNascimento").Value.ToString();
 
               }
 

@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AcessarFirebaseDados.cs" />
     <Compile Include="Assets\Scripts\EmailPassword.cs" />
+    <Compile Include="Assets\Scripts\GravaDados.cs" />
     <Compile Include="Assets\Scripts\LeDadosSeco.cs" />
     <Compile Include="Assets\Scripts\moveOffSet.cs" />
     <Compile Include="Assets\Scripts\notaFinal.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Scripts\soundController.cs" />
     <Compile Include="Assets\Scripts\temaInfo.cs" />
     <Compile Include="Assets\Scripts\temaJogo.cs" />
+    <Compile Include="Assets\Scripts\User.cs" />
     <Compile Include="Assets\Scripts\Usuario.cs" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />

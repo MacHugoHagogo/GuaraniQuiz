@@ -7,5 +7,6 @@ public static class Usuario {
     public static string Nome;
     public static string eMail;
     public static string UID;
+    public static string DataNascimento;
 
 }

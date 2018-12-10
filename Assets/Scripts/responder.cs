@@ -226,7 +226,7 @@ public class responder : MonoBehaviour
         }
 
 
-      //  proximaPergunta();
+        proximaPergunta();
 
     }
 

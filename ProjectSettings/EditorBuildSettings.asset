@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/T1.unity
     guid: 6d508c0eded5346f3ac05240f94fe2c1
+  - enabled: 1
+    path: Assets/Scenes/notaFinal.unity
+    guid: e214fc3513e8c471db414b4db583cb59
   m_configObjects: {}
