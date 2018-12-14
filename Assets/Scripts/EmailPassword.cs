@@ -18,7 +18,7 @@ public class EmailPassword : MonoBehaviour
     {
         auth = FirebaseAuth.DefaultInstance;
         //Just an example to save typing in the login form
-        UserNameInput.text = "demofirebase@gmail.com";
+        UserNameInput.text = "hugomfmelo@gmail.com";
         PasswordInput.text = "abcdefgh";
 
        SignupButton.onClick.AddListener(() => Signup(UserNameInput.text, PasswordInput.text));
@@ -87,9 +87,15 @@ public class EmailPassword : MonoBehaviour
 
             FirebaseUser user = task.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
-                user.DisplayName, user.UserId);
+            user.DisplayName, user.UserId);
 
-            PlayerPrefs.SetString("LoginUser", user != null ? user.Email : "Unknown");
+           // PlayerPrefs.SetString("LoginUser", user != null ? user.Email : "Unknown");
+           // PlayerPrefs.SetString("UidUser", user != null ? user.UserId : "Unknown");
+            Usuario.eMail = user.Email;
+            Usuario.Nome = user.DisplayName;
+            Usuario.UID = user.UserId;
+
+            
             SceneManager.LoadScene("titulo");
         }
                                                                           

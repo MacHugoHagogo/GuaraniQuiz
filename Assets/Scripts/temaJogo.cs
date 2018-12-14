@@ -76,7 +76,7 @@ public class temaJogo : MonoBehaviour {
             }
             else
             {
-                print("Nao tem nota minima");
+                txtNomeTema.text = "Nao tem nota minima";
                 return false;
 
 
@@ -91,15 +91,16 @@ public class temaJogo : MonoBehaviour {
     }
 
         public void SelecioneTema(int i){
+        // Seleciona o tema que se vai trabalhar. Recebe em "i" o tema.
 
         idTema = i;
 
 
         Vidas = PlayerPrefs.GetInt("vidas");
         print("Vidas =" + Vidas.ToString());
-//       print("Selecionou o tema =" + nomeTema[(idTema - 1)].ToString());
+        //       print("Selecionou o tema =" + nomeTema[(idTema - 1)].ToString());
 
-      /*  if (Vidas <= 0)
+        if (Vidas <= 0)
         {
 
             txtNomeTema.text = "Você não tem moedas o suficiente para jogar";
@@ -108,7 +109,7 @@ public class temaJogo : MonoBehaviour {
         }
         else
         {
-*/
+
             // verificaNotaMinima nota minima para jogar.
             print("nota minima ta marcado? " + requerNotaMinima.ToString());
 
@@ -123,7 +124,8 @@ public class temaJogo : MonoBehaviour {
 
                     txtNomeTema.text = "Você Tem de obter pelo menos 2 estrelas na fase anterior para poder jogar";
                 }
-                else{
+                else
+                {
                     AgoraRoda();
                 }
             }
@@ -131,9 +133,9 @@ public class temaJogo : MonoBehaviour {
             else
 
             {
-                AgoraRoda();
+                    AgoraRoda();
             }
-
+        }
 
     }
 

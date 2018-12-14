@@ -6,6 +6,7 @@ using UnityEngine;
 using Firebase;
 using Firebase.Unity.Editor;
 using Firebase.Database;
+using UnityEngine.UI;
 using System;
 
 
@@ -13,6 +14,8 @@ public class LeDadosSeco : MonoBehaviour {
  
 
     public int QtdPerguntas;
+    public Text DadosBaseSeco;
+    public string UidUser;
 
 
 
@@ -32,10 +35,13 @@ public class LeDadosSeco : MonoBehaviour {
         Question.R3 = new string[QtdPerguntas];
         Question.R4 = new string[QtdPerguntas];
         Question.Resposta = new string[QtdPerguntas];
-
+        UidUser = PlayerPrefs.GetString("UidUser");
+        DadosBaseSeco.text = " Dados base seco =" + UidUser.ToString();
+       // UidUser = "o3Qdp7J9M3hSOgNzsHRspMU1U2n1";
 
 
         InitializeFirebase();
+       // Hash.text = Usuario.UID.ToString() + "<<-";
 
     }
 
@@ -101,25 +107,31 @@ public class LeDadosSeco : MonoBehaviour {
           else if (task.IsCompleted)
           {
               DataSnapshot snapshot = task.Result;
-              print("quantidade de filhos" + snapshot.ChildrenCount.ToString());
+              print("Leitura antes de abrir =" + UidUser.ToString());
 
-              for (int i = 0; i < QtdPerguntas; i++)
-              {
-                  // Le os dados do Banco no atalho /Tela+Indice+/Pergunta - Desse jeito ele busca os itens da árvore
-                  // no caminho certo e coloca no indice do arrey.
-                  Usuario.Nome = snapshot.Child("/o3Qdp7J9M3hSOgNzsHRspMU1U2n1" + "/Nome").Value.ToString();
-                  Usuario.eMail = snapshot.Child("/o3Qdp7J9M3hSOgNzsHRspMU1U2n1" + "/eMail").Value.ToString();
-                  Usuario.DataNascimento = snapshot.Child("/o3Qdp7J9M3hSOgNzsHRspMU1U2n1" + "/DataNascimento").Value.ToString();
+              // Le os dados do Banco no atalho /Tela+Indice+/Pergunta - Desse jeito ele busca os itens da árvore
+              // no caminho certo e coloca no indice do arrey.
 
-              }
+                //  Usuario.Nome = snapshot.Child(UidUser.ToString() + "/Nome").Value.ToString();
+                //  Usuario.eMail = snapshot.Child(UidUser.ToString() + "/eMail").Value.ToString();
+                //  Usuario.DataNascimento = snapshot.Child(UidUser.ToString() + "/DataNascimento").Value.ToString();
+                //  Usuario.UID = UidUser;
 
-              print("Dado Nome =" + Usuario.Nome.ToString());
+     //         Hash.text = "Dado Nome = " + UidUser.ToString();
               print("Dado eMail =" + Usuario.eMail.ToString());
+
               // Do something with snapshot...
           }
       });
 
+        print("Passou pela leitura");
 
 
+
+    }
+
+    public void LimparAll() {
+
+        PlayerPrefs.DeleteAll();
     }
 }

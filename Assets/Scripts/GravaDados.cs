@@ -19,23 +19,23 @@ public class GravaDados : MonoBehaviour {
 
 
 
-        WriteNewUser(Usuario.Nome, Usuario.eMail, Usuario.DataNascimento);
+        WriteNewUser(Usuario.Nome, Usuario.eMail, Usuario.DataNascimento, Usuario.UID);
 
 
     }
     
-    private void WriteNewUser(string nome, string email, string dataNascimento)
+    private void WriteNewUser(string nome, string email, string dataNascimento, string uid)
     {
 
 
 
 
-        User user = new User(nome, email, dataNascimento);
+        User user = new User(nome, email, dataNascimento, uid);
         string json = JsonUtility.ToJson(user);
 
         DatabaseReference usersref = FirebaseDatabase.DefaultInstance.GetReference("Usuarios");
 
-        usersref.Child("o3Qdp7J9M3hSOgNzsHRspMU1U2n1").SetRawJsonValueAsync(json);
+        usersref.Child(uid.ToString()).SetRawJsonValueAsync(json);
 
         print("JSON =" + json.ToString());
 

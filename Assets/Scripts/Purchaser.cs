@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Purchasing;
+using UnityEngine.SceneManagement;
 
 // Placing the Purchaser class in the CompleteProject namespace allows it to interact with ScoreManager, 
 // one of the existing Survival Shooter scripts.
 
-    // Deriving the Purchaser class from IStoreListener enables it to receive messages from Unity Purchasing.
-    public class Purchaser : MonoBehaviour, IStoreListener
+// Deriving the Purchaser class from IStoreListener enables it to receive messages from Unity Purchasing.
+public class Purchaser : MonoBehaviour, IStoreListener
     {
         private static IStoreController m_StoreController;          // The Unity Purchasing system.
         private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.
@@ -272,5 +273,13 @@ using UnityEngine.Purchasing;
             // this reason with the user to guide their troubleshooting actions.
             Debug.Log(string.Format("OnPurchaseFailed: FAIL. Product: '{0}', PurchaseFailureReason: {1}", product.definition.storeSpecificId, failureReason));
         }
+
+    public void VaiParaInicio()
+    {
+
+        SceneManager.LoadScene("titulo");
+
+
+    }
 
 }
