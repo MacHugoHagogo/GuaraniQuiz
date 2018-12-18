@@ -18,7 +18,17 @@ public class temaJogo : MonoBehaviour {
     public GameObject   estrela1;
     public GameObject   estrela2;
     public GameObject   estrela3;
-  // public GameObject[] estrelas;
+
+    [Header("Configuração da paginação")]
+    public Button[] BtnPaginacao;
+    public GameObject[] PainelTemas;
+
+    private bool AtivarBtnPaginação;
+
+    // public GameObject[] estrelas;
+
+
+    public int idPagina;
 
 
 
@@ -43,6 +53,9 @@ public class temaJogo : MonoBehaviour {
     void Start () {
 
 
+        // Ativa o botão de paginação 
+        ligarDesligarPaginacao();
+
         // recebe o botão
         btnTema = GetComponent<Button>();
 
@@ -54,6 +67,25 @@ public class temaJogo : MonoBehaviour {
         txtInfoTema.text = "";
        
         soundController = FindObjectOfType(typeof(soundController)) as soundController;
+
+    }
+
+    void ligarDesligarPaginacao() {
+
+        if (PainelTemas.Length > 1)
+        {
+            AtivarBtnPaginação = true;
+        }
+        else
+        {
+            AtivarBtnPaginação = false;
+        }
+
+        for (int i = 0, BtnPaginacaoLength = BtnPaginacao.Length; i < BtnPaginacaoLength; i++)
+        {
+            Button b = BtnPaginacao[i];
+            b.gameObject.SetActive(AtivarBtnPaginação);
+        }
 
     }
 
@@ -201,9 +233,19 @@ public class temaJogo : MonoBehaviour {
 
     }
 
+    public void BtnPagina (int i) {
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+        idPagina += i;
+        if (idPagina < 0) { idPagina = PainelTemas.Length - 1;  }
+        else if( idPagina >= PainelTemas.Length) { idPagina = 0; }
+
+        foreach (GameObject p in PainelTemas)
+        {
+            p.gameObject.SetActive(false);
+        }
+        PainelTemas[idPagina].SetActive(true);
+        print("Pagina =" + idPagina.ToString());
+
+
+    }
 }

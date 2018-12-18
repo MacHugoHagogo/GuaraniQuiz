@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/loja.unity
     guid: f01f59005dcda4b41b3b4b86f97224f7
   - enabled: 1
-    path: Assets/Scenes/notaFinal.unity
-    guid: e214fc3513e8c471db414b4db583cb59
-  - enabled: 1
     path: Assets/Scenes/T1.unity
-    guid: 496a31f4fd2574615b7f8e625ebe027c
+    guid: 97f28de41140b4882b7c2f0bd1589475
+  - enabled: 1
+    path: Assets/Scenes/notaFinal.unity
+    guid: 4672917e036ea4bcb9fe350cf4b5d9a1
   m_configObjects: {}

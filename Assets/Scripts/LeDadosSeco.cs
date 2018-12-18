@@ -36,7 +36,7 @@ public class LeDadosSeco : MonoBehaviour {
         Question.R4 = new string[QtdPerguntas];
         Question.Resposta = new string[QtdPerguntas];
         UidUser = PlayerPrefs.GetString("UidUser");
-        DadosBaseSeco.text = " Dados base seco =" + UidUser.ToString();
+       // DadosBaseSeco.text = " Dados base seco =" + UidUser.ToString();
        // UidUser = "o3Qdp7J9M3hSOgNzsHRspMU1U2n1";
 
 
